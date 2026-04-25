@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-from core.config import get_settings
+
+from api.core.config import get_settings
 
 engine = create_engine(get_settings.SUPABASE_URL, connect_args={'check_same_thread': False} if "sqlite" in get_settings.SUPABASE_URL else {})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False,bind=engine)

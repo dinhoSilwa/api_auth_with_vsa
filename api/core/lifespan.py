@@ -1,11 +1,12 @@
 import logging
 from collections.abc import AsyncGenerator
-from contextlib import contextmanager
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
-from core.config import get_settings
-@contextmanager
-def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+from api.core.config import get_settings
+
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
   config = get_settings()
   logging.info(f"Iniciando Projeto {config.PROJECT_NAME}")
   yield
