@@ -1,0 +1,5 @@
+# API de autenticação 
+
+Este projeto utiliza a **Vertical Slice Architecture (VSA)** para organizar o código em fatias de negócio independentes (Auth, User, Product), onde cada funcionalidade contém suas próprias camadas de domínio, repositórios e handlers de comando/consulta. Ao centralizar tudo o que uma funcionalidade precisa em um único lugar, eliminamos o acoplamento excessivo das arquiteturas tradicionais em camadas, facilitando a manutenção e a escalabilidade do sistema de acordo com os padrões modernos de 2026.
+
+A segurança é gerida por um sistema de **autenticação JWT** integrado via injeção de dependência do FastAPI, garantindo que apenas usuários autenticados acessem operações críticas. O fluxo de autenticação é isolado em sua própria fatia, enquanto a proteção de rotas é aplicada de forma declarativa nos endpoints, permitindo que a documentação automática do Swagger identifique e teste os requisitos de segurança de forma nativa e intuitiva.
